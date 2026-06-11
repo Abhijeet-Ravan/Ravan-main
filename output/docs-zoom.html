@@ -1,10 +1,174 @@
+ChatGPT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Pasted code.html
+File
+so the thing is no user has to install the agni zoom app, our app will be used to connect user's zoom account with agni through zoom oauth and after it gets connected than we will able to fetch the data like zoom appointments, and able to sebd the zoom meeting links and all because there account get integrated with agni. I do not think anyone has to install the zoom agni app.
+
+You’re right to question the word “install.” Zoom uses it in a slightly cursed Marketplace sense, where “install” often means “authorize this OAuth app,” not “download an app like it’s 2012.” I’ll verify the submission-language angle against Zoom’s docs before giving you the clean wording.
+
+Thought for 29s
+You are basically right.
+
+For your Agni use case, the user does not install a desktop/mobile app. They are not downloading “Agni for Zoom” into Zoom like some little widget haunting their sidebar.
+
+What actually happens is:
+
+User logs into Agni
+
+User clicks Connect Zoom
+
+Agni redirects them to Zoom OAuth
+
+Zoom asks the user to authorize Agni’s requested permissions
+
+Zoom redirects back to Agni with an authorization code
+
+Agni exchanges that code for access/refresh tokens
+
+Agni can then use Zoom APIs to fetch/sync/create the allowed data, like meetings, meeting links, scheduled meeting metadata, etc.
+
+Zoom itself describes OAuth apps as integrations that access Zoom APIs and webhooks on behalf of an authorized user, with scoped data access. So yes, the core model is “connect/authorize,” not “install an app on the user’s device.” 
+
+The annoying part, because software platforms enjoy naming things like medieval tax codes, is that Zoom may still use words like add, install, remove, and deauthorize for OAuth apps. Their end-user authorization docs say users may add an app using the Authorization URL or Marketplace listing, and then Zoom prompts them to grant permissions. 
+
+So the correct wording for your public docs should be:
+
+Connect your Zoom account to Agni
+
+Not:
+
+Install the Agni Zoom app
+
+Use “install” only where Zoom’s Marketplace process requires it, or explain it once like this:
+
+Zoom may refer to this process as adding or installing the app. In Agni, this simply means authorizing Zoom access through OAuth. No separate Agni application needs to be downloaded or installed by the user.
+
+Your current uploaded Zoom docs still heavily frame this as “installation, usage, removal,” including “Before You Install” and “Installation Steps,” which is technically acceptable in Zoom-land but not ideal for your actual product flow. It should be rewritten around connection, authorization, disconnection, and deauthorization. 
+
+
+The clean structure should be:
+
+What this is
+Agni’s Zoom integration lets an Agni user connect their Zoom account so Agni can create, fetch, sync, display, and send Zoom meeting information inside Agni workflows.
+
+What it is not
+Users do not need to download or install a separate Agni app on their computer or phone. The connection happens through Zoom OAuth authorization.
+
+Better wording for the docs
+Replace:
+
+“Before You Install”
+
+With:
+
+“Before You Connect Zoom”
+
+Replace:
+
+“Installation Steps”
+
+With:
+
+“Connecting Your Zoom Account”
+
+Replace:
+
+“After installation”
+
+With:
+
+“After Zoom is connected”
+
+Replace:
+
+“Uninstall”
+
+With:
+
+“Disconnect or revoke authorization”
+
+Replace:
+
+“The Agni Zoom app allows authorized users…”
+
+With:
+
+“The Agni Zoom integration allows authorized Agni users to connect their Zoom account to Agni through Zoom OAuth.”
+
+For Zoom compliance, you still need to provide disconnect/removal guidance because Zoom requires apps made available to end users to support removal/deauthorization, and public apps receive deauthorization notifications when users remove or deauthorize them. 
+
+One important product decision: this sounds like a User-managed OAuth app if each Agni user connects their own Zoom account. Zoom says user-managed apps are added/managed by individual users and access only that user’s authorized data. If you want one company admin to connect Zoom once and let Agni access/manage account-wide Zoom data, then you may need an Admin-managed setup instead. Zoom separates these pretty clearly, because apparently one permissions model would have been too merciful. 
+
+My recommendation: change the docs to call it Agni Zoom Integration publicly, not “Agni Zoom App” everywhere.
+
+Use:
+
+Agni Zoom Integration
+Connect your Zoom account to Agni using Zoom OAuth. Once connected, Agni can access only the Zoom data authorized by the user or organization, such as meeting metadata and meeting links needed for Agni workflows.
+
+And keep a small note:
+
+Zoom may describe this connection as adding or installing an app. In Agni, this means authorizing the Zoom integration. No separate Agni software is installed on the user’s device.
+
+
+Okay, would you be able to make the changes and give the webpage back to me?
+
+I’ll rewrite the uploaded page so it matches the real OAuth flow: “connect Zoom,” not “install app.” Humanity survives another documentation naming disaster.
+
+Thought for 1m 13s
+Done. I updated the webpage so it now frames the flow correctly as Zoom OAuth connection/authorization, not a user “installing” an Agni app like some tragic toolbar from 2009.
+
+I changed the page from “Agni Zoom App Documentation” to “Agni Zoom Integration Documentation”, and rewrote the sections around:
+
+Connect Zoom
+
+OAuth authorization
+
+No separate app download/install
+
+Permissions and Zoom data access
+
+Using Zoom after connection
+
+Disconnecting/revoking authorization
+
+Data deletion and support
+
+I used your uploaded HTML as the base file. 
+
+
+Download the updated webpage here:
+
+Download agni-zoom-integration-docs.html
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Agni Zoom App Documentation | Ravan.ai</title>
-  <meta name="description" content="Documentation for the Agni by ravan.ai Zoom app, including installation, use, permissions, disconnection, and deletion requests.">
+  <title>Agni Zoom Integration Documentation | Ravan.ai</title>
+  <meta name="description" content="Documentation for the Agni by ravan.ai Zoom integration, including OAuth connection, use, permissions, disconnection, and deletion requests.">
   <link rel="canonical" href="https://ravan.ai/docs/zoom">
   <meta name="theme-color" content="#120d09">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -270,16 +434,16 @@
         <a href="/privacy">Privacy</a>
         <a href="/terms">Terms</a>
         <a href="/support">Support</a>
-        <a href="/docs/zoom">Zoom Docs</a>
+        <a href="/docs/zoom">Zoom Integration Docs</a>
       </nav>
     </div>
   </header>
   <main>
     <section class="hero">
       <div class="hero-card">
-        <span class="eyebrow">Zoom Documentation</span>
-        <h1>Agni for Zoom, explained end to end.</h1>
-        <p class="hero-text">Installation, permissions, usage, removal, and data deletion guidance for the Agni by ravan.ai Zoom app.</p>
+        <span class="eyebrow">Zoom Integration Documentation</span>
+        <h1>Connect Zoom to Agni, explained end to end.</h1>
+        <p class="hero-text">OAuth connection, permissions, usage, disconnection, and data deletion guidance for the Agni by ravan.ai Zoom integration.</p>
         <section class="quick-grid"><div class="quick-card"><span class="quick-label">Support</span><div class="quick-value"><a href="mailto:support@ravan.ai">support@ravan.ai</a></div></div><div class="quick-card"><span class="quick-label">Privacy</span><div class="quick-value"><a href="mailto:privacy@ravan.ai">privacy@ravan.ai</a></div></div><div class="quick-card"><span class="quick-label">Policy</span><div class="quick-value"><a href="https://ravan.ai/privacy">https://ravan.ai/privacy</a></div></div><div class="quick-card"><span class="quick-label">Terms</span><div class="quick-value"><a href="https://ravan.ai/terms">https://ravan.ai/terms</a></div></div></section>
       </div>
     </section>
@@ -287,8 +451,9 @@
       <div class="content-card">
         <article class="prose">
           <p><strong>Last updated:</strong> June 11, 2026</p>
-<p>This documentation explains how to install, use, and remove the <strong>Agni by ravan.ai</strong> Zoom app.</p>
+<p>This documentation explains how to connect, use, disconnect, and request deletion for the <strong>Agni by ravan.ai Zoom integration</strong>.</p>
 <p>Agni is a product of <strong>Ravan AI LLC</strong>. Agni helps businesses use AI voice agents, calls, campaigns, appointments, integrations, and call intelligence workflows.</p>
+<p><strong>Important note:</strong> Users do not need to download or install a separate Agni application on their computer or phone. The Zoom connection happens through <strong>Zoom OAuth authorization</strong>. Zoom may refer to this process as adding or installing an app, but in Agni this simply means authorizing Agni to access the Zoom data permitted by the approved Zoom scopes.</p>
 <p><strong>Ravan AI LLC</strong><br />
 8 The Green, Ste R<br />
 Dover, DE 19901<br />
@@ -296,45 +461,59 @@ United States</p>
 <p>Support: <strong><a href="mailto:support@ravan.ai">support@ravan.ai</a></strong><br />
 Privacy: <strong><a href="mailto:privacy@ravan.ai">privacy@ravan.ai</a></strong></p>
 <hr />
-<h2>1. What the Zoom App Does</h2>
-<p>The Agni Zoom app allows authorized users and organizations to connect Zoom with Agni so Zoom-related workflows can be used inside Agni.</p>
-<p>Depending on the app configuration and permissions approved during installation, the app may help users:</p>
+<h2>1. What the Zoom Integration Does</h2>
+<p>The Agni Zoom integration allows authorized Agni users and organizations to connect a Zoom account to an Agni workspace through Zoom OAuth.</p>
+<p>After a Zoom account is connected, Agni may use authorized Zoom API access to support Zoom-related workflows inside Agni. Depending on the app configuration, workspace settings, and permissions approved during OAuth authorization, Agni may help users:</p>
 <ul>
 <li>connect a Zoom account to an Agni workspace;</li>
-<li>use Zoom identity or account information to authenticate or configure a workflow;</li>
-<li>access meeting or scheduling metadata needed for configured workflows;</li>
-<li>create, display, or sync Zoom meeting links where a workflow requires it;</li>
-<li>associate Zoom-related records with Agni contacts, appointments, campaigns, call sessions, or CRM workflows;</li>
+<li>identify the connected Zoom user or account;</li>
+<li>fetch Zoom meeting or appointment metadata needed for configured Agni workflows;</li>
+<li>create, display, sync, or send Zoom meeting links where a workflow requires it;</li>
+<li>associate Zoom meetings or links with Agni contacts, appointments, campaigns, call sessions, or CRM workflows;</li>
 <li>process meeting records, transcripts, recordings, or summaries only where the relevant feature is enabled and the required permission has been granted.</li>
 </ul>
 <p>Agni only uses Zoom data to provide the Zoom-related functionality requested by the user or organization.</p>
 <hr />
-<h2>2. Before You Install</h2>
-<p>Before installing the app, make sure:</p>
+<h2>2. What This Integration Is Not</h2>
+<p>The Agni Zoom integration is not a separate desktop app, mobile app, browser extension, or Zoom client plugin that users need to download.</p>
+<p>The connection works through OAuth:</p>
+<ol>
+<li>The user signs in to Agni.</li>
+<li>The user selects <strong>Connect Zoom</strong>.</li>
+<li>Agni redirects the user to Zoom.</li>
+<li>Zoom shows the requested permissions.</li>
+<li>The user authorizes the connection if they agree and have authority to do so.</li>
+<li>Zoom redirects the user back to Agni.</li>
+<li>Agni stores the authorization securely and uses it only for the approved Zoom-related workflows.</li>
+</ol>
+<p>Zoom may still use marketplace terms such as <strong>add</strong>, <strong>install</strong>, <strong>remove</strong>, or <strong>deauthorize</strong>. In this documentation, <strong>connect</strong> means authorizing Zoom access through OAuth, and <strong>disconnect</strong> means removing or revoking that authorization.</p>
+<hr />
+<h2>3. Before You Connect Zoom</h2>
+<p>Before connecting Zoom to Agni, make sure:</p>
 <ul>
 <li>you have an active Zoom account;</li>
 <li>you have an Agni account or workspace;</li>
 <li>your organization permits connecting Zoom to third-party applications;</li>
 <li>you have the required Zoom permissions or administrator approval;</li>
-<li>you understand what Zoom permissions are requested during installation.</li>
+<li>you understand the Zoom permissions requested during the OAuth authorization flow.</li>
 </ul>
 <hr />
-<h2>3. Installation Steps</h2>
+<h2>4. Connecting Your Zoom Account</h2>
 <ol>
 <li>Sign in to your Agni account.</li>
 <li>Go to the Agni dashboard.</li>
 <li>Open <strong>Integrations</strong> or the relevant Zoom connection page.</li>
 <li>Select <strong>Connect Zoom</strong>.</li>
 <li>You will be redirected to Zoom for authorization.</li>
-<li>Review the permissions requested by the Agni Zoom app.</li>
-<li>Approve the app if you agree and have authority to connect it.</li>
-<li>After approval, Zoom will redirect you back to Agni.</li>
+<li>Review the permissions requested by the Agni Zoom integration.</li>
+<li>Authorize the connection if you agree and have authority to connect the Zoom account.</li>
+<li>After authorization, Zoom will redirect you back to Agni.</li>
 <li>Confirm that the Zoom connection shows as active in Agni.</li>
 </ol>
-<p>If your organization requires administrator approval, a Zoom administrator may need to approve the app before it can be used.</p>
+<p>If your organization requires administrator approval, a Zoom administrator may need to approve the integration before it can be connected or used.</p>
 <hr />
-<h2>4. Permissions and Data Access</h2>
-<p>The exact Zoom permissions requested are shown during the Zoom authorization flow. Agni only requests permissions needed to provide the configured app functionality.</p>
+<h2>5. Permissions and Data Access</h2>
+<p>The exact Zoom permissions requested are shown during the Zoom authorization flow. Agni only requests permissions needed to provide the configured Zoom-related functionality.</p>
 <p>Depending on the app version and enabled features, Agni may access some or all of the following categories of Zoom data:</p>
 <table>
 <thead>
@@ -367,19 +546,20 @@ Privacy: <strong><a href="mailto:privacy@ravan.ai">privacy@ravan.ai</a></strong>
 </tr>
 <tr>
 <td>Authorization data</td>
-<td>Access tokens, refresh tokens, installation status, revocation status</td>
-<td>Maintain or disconnect the integration securely</td>
+<td>Access tokens, refresh tokens, connection status, revocation status</td>
+<td>Maintain, secure, refresh, or disconnect the integration</td>
 </tr>
 </tbody>
 </table>
-<p>Agni does not access Zoom data that is not authorized by the permissions granted to the app.</p>
+<p>Agni does not access Zoom data that is not authorized by the permissions granted to the integration.</p>
 <hr />
-<h2>5. How Agni Uses Zoom Data</h2>
+<h2>6. How Agni Uses Zoom Data</h2>
 <p>Agni may use Zoom data to:</p>
 <ul>
 <li>connect a Zoom account to an Agni workspace;</li>
 <li>enable Zoom-related workflows inside Agni;</li>
 <li>sync or display meeting links and meeting metadata;</li>
+<li>send Zoom meeting links through configured Agni workflows;</li>
 <li>connect meetings or scheduled events to contacts, campaigns, appointments, or CRM records;</li>
 <li>generate configured summaries, transcripts, or call intelligence outputs where enabled;</li>
 <li>provide support, troubleshooting, security, and audit functions;</li>
@@ -387,8 +567,8 @@ Privacy: <strong><a href="mailto:privacy@ravan.ai">privacy@ravan.ai</a></strong>
 </ul>
 <p>Agni does not sell Zoom data. Agni does not use Zoom data to train AI models for other customers unless expressly authorized in writing.</p>
 <hr />
-<h2>6. Using the Zoom App</h2>
-<p>After installation:</p>
+<h2>7. Using Zoom After It Is Connected</h2>
+<p>After Zoom is connected:</p>
 <ol>
 <li>Open Agni.</li>
 <li>Navigate to the workflow where Zoom is used, such as integrations, appointments, meetings, contacts, campaigns, or call/session workflows.</li>
@@ -399,7 +579,7 @@ Privacy: <strong><a href="mailto:privacy@ravan.ai">privacy@ravan.ai</a></strong>
 </ol>
 <p>The available actions may depend on your Agni plan, organization settings, Zoom permissions, and the features enabled for your workspace.</p>
 <hr />
-<h2>7. Disconnecting or Removing the Zoom App</h2>
+<h2>8. Disconnecting or Revoking Zoom Authorization</h2>
 <p>You can disconnect Zoom from Agni by:</p>
 <ol>
 <li>Signing in to Agni.</li>
@@ -407,16 +587,16 @@ Privacy: <strong><a href="mailto:privacy@ravan.ai">privacy@ravan.ai</a></strong>
 <li>Selecting the connected Zoom account.</li>
 <li>Choosing <strong>Disconnect</strong>, <strong>Remove</strong>, or the equivalent action.</li>
 </ol>
-<p>You can also revoke the app from Zoom:</p>
+<p>You can also revoke Agni's access from Zoom:</p>
 <ol>
 <li>Sign in to your Zoom account.</li>
 <li>Open Zoom App Marketplace or your account's installed apps settings.</li>
-<li>Find the Agni/ravan.ai app.</li>
-<li>Choose <strong>Remove</strong>, <strong>Uninstall</strong>, or <strong>Revoke</strong>.</li>
+<li>Find the Agni or ravan.ai integration.</li>
+<li>Choose <strong>Remove</strong>, <strong>Uninstall</strong>, <strong>Revoke</strong>, or the equivalent action shown by Zoom.</li>
 </ol>
-<p>After removal, Agni will stop accessing new Zoom data through the revoked authorization. Previously processed data may remain in Agni according to customer settings, applicable agreements, the Privacy Policy, and backup retention practices.</p>
+<p>After disconnection or revocation, Agni will stop accessing new Zoom data through the revoked authorization. Previously processed data may remain in Agni according to customer settings, applicable agreements, the Privacy Policy, and backup retention practices.</p>
 <hr />
-<h2>8. Requesting Data Deletion</h2>
+<h2>9. Requesting Data Deletion</h2>
 <p>To request deletion of Zoom-related data processed by Agni, contact:</p>
 <p><strong><a href="mailto:privacy@ravan.ai">privacy@ravan.ai</a></strong></p>
 <p>Please include:</p>
@@ -430,12 +610,12 @@ Privacy: <strong><a href="mailto:privacy@ravan.ai">privacy@ravan.ai</a></strong>
 </ul>
 <p>If the data is controlled by a business customer, we may direct the request to that customer or work with that customer to respond.</p>
 <hr />
-<h2>9. Troubleshooting</h2>
-<h3>The app will not install</h3>
+<h2>10. Troubleshooting</h2>
+<h3>The Zoom connection does not complete</h3>
 <p>Check that:</p>
 <ul>
 <li>you are signed in to the correct Zoom account;</li>
-<li>your organization allows app installations;</li>
+<li>your organization allows third-party app authorizations;</li>
 <li>you have administrator approval if required;</li>
 <li>you are signed in to the correct Agni workspace.</li>
 </ul>
@@ -452,8 +632,8 @@ Privacy: <strong><a href="mailto:privacy@ravan.ai">privacy@ravan.ai</a></strong>
 <li>your Agni workspace has access to the relevant workflow.</li>
 </ul>
 <hr />
-<h2>10. Support</h2>
-<p>For help with the Zoom app, contact:</p>
+<h2>11. Support</h2>
+<p>For help with the Zoom integration, contact:</p>
 <p><strong><a href="mailto:support@ravan.ai">support@ravan.ai</a></strong></p>
 <p>Include:</p>
 <ul>
@@ -466,6 +646,7 @@ Privacy: <strong><a href="mailto:privacy@ravan.ai">privacy@ravan.ai</a></strong>
 <p>Privacy Policy: <strong><a href="https://ravan.ai/privacy">https://ravan.ai/privacy</a></strong><br />
 Terms of Service: <strong><a href="https://ravan.ai/terms">https://ravan.ai/terms</a></strong><br />
 Support: <strong><a href="https://ravan.ai/support">https://ravan.ai/support</a></strong></p>
+        
         </article>
       </div>
     </section>
@@ -477,9 +658,10 @@ Support: <strong><a href="https://ravan.ai/support">https://ravan.ai/support</a>
         <a href="/privacy">Privacy</a>
         <a href="/terms">Terms</a>
         <a href="/support">Support</a>
-        <a href="/docs/zoom">Zoom Docs</a>
+        <a href="/docs/zoom">Zoom Integration Docs</a>
       </nav>
     </div>
   </footer>
 </body>
 </html>
+
