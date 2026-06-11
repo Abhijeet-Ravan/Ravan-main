@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy | Ravan.ai</title>
+  <meta name="description" content="Privacy Policy for Ravan.ai and Agni by ravan.ai, including data collection, use, retention, and Zoom app handling.">
+  <link rel="canonical" href="https://ravan.ai/privacy">
+  <meta name="theme-color" content="#120d09">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #1a120d;
+      --bg-deep: #120d09;
+      --panel: #2c1b13;
+      --panel-2: #3a2418;
+      --paper: #f6f1e9;
+      --paper-line: #e4d9c8;
+      --ink: #16110d;
+      --muted: #7b6e63;
+      --cream: #f4eee5;
+      --accent: #e8713a;
+      --accent-deep: #c85d2c;
+      --line-dark: rgba(255, 255, 255, 0.08);
+      --shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+      --radius: 22px;
+      --content-width: 860px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'DM Sans', sans-serif;
+      color: var(--cream);
+      background:
+        linear-gradient(180deg, rgba(232, 113, 58, 0.09), transparent 140px),
+        linear-gradient(180deg, #24160f 0%, var(--bg) 220px, #1d140f 100%);
+      line-height: 1.7;
+    }
+    a { color: inherit; }
+    .site-nav {
+      background: var(--bg-deep);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .nav-inner, .footer-inner, .hero, .content-wrap {
+      width: min(calc(100% - 32px), 1120px);
+      margin: 0 auto;
+    }
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 26px 0;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: var(--cream);
+    }
+    .brand-mark {
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 14px 24px;
+      font-size: 0.98rem;
+    }
+    .nav-links a,
+    .footer-links a {
+      text-decoration: none;
+      color: rgba(244, 238, 229, 0.84);
+    }
+    .nav-links a:hover,
+    .footer-links a:hover,
+    .prose a:hover,
+    .quick-value a:hover {
+      color: #ffbc9b;
+    }
+    .hero {
+      padding: 54px 0 32px;
+    }
+    .hero-card {
+      position: relative;
+      padding: 40px;
+      border-radius: 28px;
+      background: linear-gradient(180deg, #352116 0%, #2a190f 100%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow);
+    }
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 4px;
+      border-radius: 28px 28px 0 0;
+      background: linear-gradient(90deg, var(--accent) 0%, rgba(232, 113, 58, 0.18) 100%);
+    }
+    .eyebrow {
+      display: inline-flex;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: #5a3321;
+      color: #ffd3be;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 20px 0 14px;
+      max-width: 920px;
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(2.25rem, 4.6vw, 4.1rem);
+      line-height: 0.98;
+      letter-spacing: -0.035em;
+      font-weight: 400;
+    }
+    .hero-text {
+      margin: 0;
+      max-width: 760px;
+      color: rgba(244, 238, 229, 0.84);
+      font-size: 1.04rem;
+    }
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+      margin-top: 30px;
+    }
+    .quick-card {
+      padding: 20px 22px;
+      border-radius: 18px;
+      background: #4a2e20;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .quick-label {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: rgba(244, 238, 229, 0.58);
+    }
+    .quick-value, .quick-value a {
+      color: var(--cream);
+      text-decoration: none;
+      font-weight: 700;
+      word-break: break-word;
+    }
+    .content-wrap {
+      padding: 0 0 72px;
+    }
+    .content-card {
+      width: min(100%, var(--content-width));
+      margin: 0 auto;
+      padding: clamp(28px, 3vw, 44px);
+      border-radius: 26px;
+      background: var(--paper);
+      color: var(--ink);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(22, 17, 13, 0.06);
+    }
+    .prose > :first-child { margin-top: 0; }
+    .prose > :last-child { margin-bottom: 0; }
+    .prose h2, .prose h3, .prose h4 {
+      color: var(--ink);
+      line-height: 1.2;
+      scroll-margin-top: 88px;
+    }
+    .prose h2 {
+      margin: 2.45rem 0 1rem;
+      padding-top: 0.2rem;
+      border-top: 1px solid var(--paper-line);
+      font-size: clamp(1.45rem, 2vw, 1.95rem);
+    }
+    .prose h2:first-of-type {
+      border-top: 0;
+      padding-top: 0;
+    }
+    .prose h3 { margin: 1.7rem 0 0.8rem; font-size: 1.14rem; }
+    .prose p, .prose li, .prose blockquote { color: #2d2621; }
+    .prose p, .prose ul, .prose ol, .prose table, .prose blockquote { margin: 1rem 0; }
+    .prose ul, .prose ol { padding-left: 1.3rem; }
+    .prose li + li { margin-top: 0.42rem; }
+    .prose strong { color: #17120f; }
+    .prose a { color: var(--accent-deep); text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
+    .prose hr { border: 0; border-top: 1px solid var(--paper-line); margin: 2rem 0; }
+    .prose blockquote {
+      padding: 16px 18px;
+      border-left: 4px solid var(--accent);
+      background: #efe5d7;
+      border-radius: 0 16px 16px 0;
+    }
+    .prose table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid #ddd0bf;
+      border-radius: 14px;
+      display: block;
+      overflow-x: auto;
+      background: #fcfaf6;
+    }
+    .prose thead { background: #f1e7d9; }
+    .prose th, .prose td {
+      padding: 12px 14px;
+      text-align: left;
+      border-bottom: 1px solid #e6dac8;
+      min-width: 140px;
+    }
+    .page-footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      background: var(--bg-deep);
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      padding: 26px 0 36px;
+      color: rgba(244, 238, 229, 0.72);
+    }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 12px 18px;
+    }
+    @media (max-width: 760px) {
+      .nav-inner, .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nav-links, .footer-links {
+        justify-content: flex-start;
+      }
+      .hero {
+        padding-top: 36px;
+      }
+      .hero-card {
+        padding: 28px 24px;
+      }
+      .content-wrap {
+        padding-bottom: 48px;
+      }
+      .content-card {
+        padding: 24px 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-nav">
+    <div class="nav-inner">
+      <a class="brand" href="/">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>Ravan.ai</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="/support">Support</a>
+        <a href="/docs/zoom">Zoom Docs</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="hero-card">
+        <span class="eyebrow">Privacy Policy</span>
+        <h1>Privacy, in plain language.</h1>
+        <p class="hero-text">How Ravan AI LLC collects, uses, retains, and protects information across ravan.ai, Agni, and approved integrations.</p>
+        <section class="quick-grid"><div class="quick-card"><span class="quick-label">Privacy Email</span><div class="quick-value"><a href="mailto:privacy@ravan.ai">privacy@ravan.ai</a></div></div><div class="quick-card"><span class="quick-label">Company</span><div class="quick-value">Ravan AI LLC</div></div><div class="quick-card"><span class="quick-label">Address</span><div class="quick-value">8 The Green, Ste R, Dover, DE 19901, United States</div></div></section>
+      </div>
+    </section>
+    <section class="content-wrap">
+      <div class="content-card">
+        <article class="prose">
+          <p><strong>Effective date:</strong> June 11, 2026<br />
+<strong>Last updated:</strong> June 11, 2026</p>
+<p>This Privacy Policy explains how <strong>Ravan AI LLC</strong> ("Ravan," "ravan.ai," "we," "us," or "our") collects, uses, shares, retains, and protects personal information in connection with our websites, applications, products, integrations, and services, including <strong>Agni by ravan.ai</strong> ("Agni").</p>
+<p>Agni is a business-facing AI calling platform that helps organizations create AI voice agents, manage calls and campaigns, connect phone numbers and integrations, book appointments, and analyze call outcomes.</p>
+<p><strong>Ravan AI LLC</strong><br />
+8 The Green, Ste R<br />
+Dover, DE 19901<br />
+United States</p>
+<p>For privacy questions or requests, contact: <strong><a href="mailto:privacy@ravan.ai">privacy@ravan.ai</a></strong></p>
+<blockquote>
+<p>This policy is intended for publication on <strong>ravan.ai</strong> and applies to Agni as a product of ravan.ai.</p>
+</blockquote>
+<hr />
+<h2>1. Scope of this Policy</h2>
+<p>This Privacy Policy applies when you:</p>
+<ul>
+<li>visit our websites;</li>
+<li>create or use a ravan.ai or Agni account;</li>
+<li>use Agni dashboards, APIs, voice agents, call tools, campaigns, integrations, or analytics;</li>
+<li>install or use a ravan.ai/Agni app or integration, including the Zoom app;</li>
+<li>communicate with us for support, sales, billing, or legal requests;</li>
+<li>interact with an AI agent, call, message, meeting workflow, or other service powered by Agni.</li>
+</ul>
+<p>This policy does not replace any agreement between Ravan and a business customer. Business customers may have additional contractual terms, data processing terms, or order forms that apply to their use of Agni.</p>
+<hr />
+<h2>2. Roles: Customers, End Users, and Call Participants</h2>
+<p>Agni is primarily provided to businesses and organizations. In many cases:</p>
+<ul>
+<li>the <strong>business customer</strong> decides what data is uploaded, connected, called, recorded, analyzed, or synced through Agni;</li>
+<li>Ravan processes that data to provide Agni to the business customer;</li>
+<li>individuals who receive calls, join meetings, appear in contact lists, or otherwise interact with Agni are the customer's end users, contacts, leads, prospects, customers, team members, or other call participants.</li>
+</ul>
+<p>Where a business customer determines why and how personal information is processed, that customer is responsible for providing required notices, obtaining required consents, maintaining lawful contact lists, honoring do-not-call obligations, and complying with applicable call recording, telemarketing, messaging, privacy, employment, health, financial, and consumer protection laws.</p>
+<p>Ravan may also process certain information as an independent controller, including account, billing, security, website, support, and business operations data.</p>
+<hr />
+<h2>3. Information We Collect</h2>
+<h3>3.1 Account and Organization Data</h3>
+<p>We may collect information such as:</p>
+<ul>
+<li>name;</li>
+<li>email address;</li>
+<li>phone number;</li>
+<li>password or authentication information;</li>
+<li>business name;</li>
+<li>organization or workspace membership;</li>
+<li>role, permissions, and user settings;</li>
+<li>profile information;</li>
+<li>login, session, and security activity;</li>
+<li>API keys and related account identifiers.</li>
+</ul>
+<h3>3.2 Product Configuration Data</h3>
+<p>When customers configure Agni, we may process:</p>
+<ul>
+<li>AI agent names, descriptions, prompts, scripts, instructions, and beginning messages;</li>
+<li>selected AI models, speech models, voice settings, language/accent settings, temperature, and behavior settings;</li>
+<li>call settings, voicemail settings, silence handling, ring duration, maximum call duration, IVR options, and transfer settings;</li>
+<li>agent tools, custom functions, webhook settings, schemas, and workflow configuration;</li>
+<li>widget settings, consent text, custom form fields, branding, themes, and public booking or interaction pages;</li>
+<li>knowledge-base settings, selected knowledge sources, exclusions, and retrieval configuration.</li>
+</ul>
+<h3>3.3 Contact, Campaign, and CRM Data</h3>
+<p>Customers may upload, import, create, sync, or manage information such as:</p>
+<ul>
+<li>names;</li>
+<li>phone numbers;</li>
+<li>email addresses;</li>
+<li>company or lead details;</li>
+<li>tags, notes, status, segments, and custom fields;</li>
+<li>campaign membership and campaign settings;</li>
+<li>call schedules, reminders, follow-up status, and outcomes;</li>
+<li>CRM records, appointment records, deal records, calendar records, or related integration data.</li>
+</ul>
+<h3>3.4 Call, Voice, and Communication Data</h3>
+<p>Depending on customer settings and the services used, Agni may process:</p>
+<ul>
+<li>inbound call data;</li>
+<li>outbound call data;</li>
+<li>web call data;</li>
+<li>caller and callee phone numbers;</li>
+<li>caller name, email, or other identifying details where provided;</li>
+<li>call status, timestamps, duration, channel, routing details, and disconnect reason;</li>
+<li>call metadata and prompt dynamic variables provided by the customer;</li>
+<li>live audio streams;</li>
+<li>call recordings where enabled;</li>
+<li>transcripts or conversation records where enabled;</li>
+<li>summaries, sentiment, extracted fields, structured outputs, and post-call analysis;</li>
+<li>latency, quality, usage, credit, and cost information;</li>
+<li>error logs and diagnostic data needed to operate the service.</li>
+</ul>
+<h3>3.5 Zoom App Data</h3>
+<p>If you install or use a ravan.ai or Agni Zoom app, we may collect and process Zoom-related information only as needed to provide the app features authorized by you or your organization. Depending on the app configuration, permissions approved during installation, and features used, this may include:</p>
+<ul>
+<li>Zoom user profile information, such as name, email address, account ID, or user ID;</li>
+<li>Zoom account or workspace identifiers;</li>
+<li>meeting, calendar, or scheduling metadata needed to provide configured workflows;</li>
+<li>meeting links, meeting IDs, topics, timestamps, host/participant metadata, or related records where authorized;</li>
+<li>recordings, transcripts, summaries, or meeting content only if the app feature requires it and the relevant permissions are granted;</li>
+<li>installation, authorization, refresh, and revocation information for the Zoom app.</li>
+</ul>
+<p>We use Zoom data only to provide, maintain, secure, and support the Zoom-related features of Agni. We do not sell Zoom data. We do not use Zoom data to train models for other customers without express authorization.</p>
+<p>Users and administrators can revoke Zoom access through their Zoom account settings and, where available, through the Agni dashboard. After revocation, Agni will stop accessing new Zoom data, although previously processed data may remain as described in this policy, customer settings, applicable agreements, and backup retention practices.</p>
+<h3>3.6 Knowledge Base and Uploaded Content</h3>
+<p>Customers may upload or connect business content to help agents answer accurately. This may include:</p>
+<ul>
+<li>documents;</li>
+<li>text sources;</li>
+<li>URLs;</li>
+<li>FAQs;</li>
+<li>business policies;</li>
+<li>service information;</li>
+<li>product information;</li>
+<li>exclusions or restricted sources;</li>
+<li>retrieval queries and outputs.</li>
+</ul>
+<p>Agni may process this content to index, retrieve, summarize, and use it during agent interactions and testing.</p>
+<h3>3.7 Billing and Payment Data</h3>
+<p>We may collect or receive:</p>
+<ul>
+<li>billing contact information;</li>
+<li>plan, subscription, invoice, tax, credit, and usage information;</li>
+<li>transaction status and payment metadata;</li>
+<li>payment processor identifiers.</li>
+</ul>
+<p>Payment card or bank information may be processed directly by third-party payment processors. We do not intentionally store full payment card numbers unless expressly stated in a separate payment flow.</p>
+<h3>3.8 Website, Device, and Usage Data</h3>
+<p>When you visit our websites or use our services, we may collect:</p>
+<ul>
+<li>IP address;</li>
+<li>browser and device information;</li>
+<li>pages viewed;</li>
+<li>referring URLs;</li>
+<li>approximate location derived from IP address;</li>
+<li>cookie and similar technology identifiers;</li>
+<li>product usage events;</li>
+<li>logs, diagnostics, crash data, and performance information.</li>
+</ul>
+<h3>3.9 Support, Sales, and Communications</h3>
+<p>When you contact us, we may collect:</p>
+<ul>
+<li>your name and contact details;</li>
+<li>company information;</li>
+<li>messages, attachments, and support requests;</li>
+<li>call, meeting, or demo notes;</li>
+<li>feedback and survey responses.</li>
+</ul>
+<hr />
+<h2>4. How We Use Information</h2>
+<p>We use information to:</p>
+<ul>
+<li>provide, operate, maintain, and improve Agni and ravan.ai services;</li>
+<li>create and manage accounts, organizations, roles, permissions, and sessions;</li>
+<li>configure and operate AI voice agents;</li>
+<li>initiate, receive, route, record, transcribe, summarize, and analyze calls where enabled;</li>
+<li>personalize calls using customer-provided variables, metadata, contacts, and campaign data;</li>
+<li>book, manage, sync, or update appointments, calendars, CRM records, and customer workflows;</li>
+<li>provide integrations, webhooks, APIs, and customer-configured tools;</li>
+<li>provide Zoom app features authorized by users or administrators;</li>
+<li>maintain dashboards, analytics, usage reporting, billing, and credit tracking;</li>
+<li>detect, prevent, and investigate abuse, fraud, security incidents, unauthorized access, and service misuse;</li>
+<li>provide customer support, documentation, training, and service communications;</li>
+<li>comply with legal obligations and enforce our agreements;</li>
+<li>develop, test, and improve product functionality in a manner consistent with customer agreements and this policy.</li>
+</ul>
+<hr />
+<h2>5. AI Processing and Model Training</h2>
+<p>Agni uses artificial intelligence and related technologies to power voice agents, transcription, summarization, post-call analysis, knowledge retrieval, and workflow automation.</p>
+<p>Customer content may be processed by AI systems and service providers to provide requested features. Customer content may include prompts, scripts, contact data, call metadata, audio, recordings, transcripts, summaries, extracted fields, Zoom data, CRM data, calendar data, and knowledge-base content.</p>
+<p>Unless a customer expressly authorizes otherwise in writing, Ravan does not use customer call recordings, transcripts, Zoom data, contact lists, CRM data, or knowledge-base content to train models for other customers. We may use aggregated or de-identified operational information to maintain, secure, debug, and improve the service, provided it does not identify a customer or individual.</p>
+<p>Third-party AI, speech, transcription, telephony, hosting, or infrastructure providers may process data on our behalf to provide the service. Their use of data is governed by our agreements with them and their applicable terms.</p>
+<hr />
+<h2>6. How We Share Information</h2>
+<p>We may share information with:</p>
+<h3>6.1 Service Providers and Subprocessors</h3>
+<p>We use vendors to provide infrastructure, hosting, storage, AI processing, speech processing, telephony, real-time communication, analytics, payments, email, customer support, security, logging, and other operational services.</p>
+<p>These providers may process information only as needed to provide services to us, subject to contractual or legal obligations where applicable.</p>
+<h3>6.2 Customer-Configured Integrations</h3>
+<p>When a customer connects a third-party service, such as a CRM, calendar, scheduling, telephony, or workflow provider, Agni may exchange information with that service as configured by the customer. Examples may include syncing contacts, appointments, call outcomes, summaries, metadata, recordings links, or workflow events.</p>
+<p>Customers are responsible for ensuring they have authority to connect those services and transfer data between them.</p>
+<h3>6.3 Business Customers and Administrators</h3>
+<p>Information about end users, contacts, call participants, calls, meetings, recordings, transcripts, summaries, and outcomes may be available to the business customer and its authorized users or administrators through Agni dashboards, exports, integrations, APIs, or reports.</p>
+<h3>6.4 Legal, Safety, and Compliance</h3>
+<p>We may disclose information when we believe it is necessary to:</p>
+<ul>
+<li>comply with law, legal process, or government requests;</li>
+<li>enforce our agreements;</li>
+<li>protect rights, safety, property, and security;</li>
+<li>investigate fraud, abuse, or security incidents;</li>
+<li>prevent harm or unlawful activity.</li>
+</ul>
+<h3>6.5 Business Transfers</h3>
+<p>If Ravan is involved in a merger, acquisition, financing, restructuring, or sale of assets, information may be transferred as part of that transaction, subject to appropriate protections.</p>
+<hr />
+<h2>7. Cookies and Similar Technologies</h2>
+<p>We may use cookies, pixels, local storage, and similar technologies to operate our websites and services, remember preferences, analyze usage, secure accounts, and improve user experience.</p>
+<p>You can control cookies through your browser settings. Some features may not work properly if cookies are disabled.</p>
+<hr />
+<h2>8. Data Retention</h2>
+<p>We retain information for as long as needed to provide the services, comply with legal obligations, resolve disputes, enforce agreements, maintain security, and support legitimate business purposes.</p>
+<p>Retention periods may vary depending on:</p>
+<ul>
+<li>customer plan and settings;</li>
+<li>type of data;</li>
+<li>feature configuration;</li>
+<li>legal or contractual requirements;</li>
+<li>account status;</li>
+<li>backup and disaster recovery practices.</li>
+</ul>
+<p>Examples:</p>
+<ul>
+<li>account and organization data may be retained while the account is active and for a reasonable period afterward;</li>
+<li>billing and transaction records may be retained as required for accounting, tax, and legal purposes;</li>
+<li>call logs, recordings, transcripts, summaries, and analysis may be retained according to customer settings, product configuration, applicable agreements, and service requirements;</li>
+<li>Zoom integration data may be retained while the integration is active and afterward only as needed for service, legal, backup, or support purposes;</li>
+<li>deleted information may remain in backups for a limited period before being overwritten or securely deleted.</li>
+</ul>
+<p>Customers may request deletion of data through the product, support, or contractual channels, subject to legal and operational limitations.</p>
+<hr />
+<h2>9. Security</h2>
+<p>We use administrative, technical, and organizational safeguards designed to protect information against unauthorized access, loss, misuse, alteration, and disclosure.</p>
+<p>These safeguards may include access controls, authentication, encryption in transit, encryption at rest where supported by our infrastructure, logging, monitoring, vendor controls, least-privilege access practices, and internal security procedures.</p>
+<p>No method of transmission or storage is completely secure. Customers are responsible for protecting their credentials, API keys, connected accounts, devices, and authorized users.</p>
+<hr />
+<h2>10. International Data Transfers</h2>
+<p>Ravan AI LLC is based in the United States. We and our service providers may process information in the United States, India, and other countries where we or our providers operate.</p>
+<p>Where required, we use appropriate safeguards for cross-border transfers, such as contractual protections or other legally recognized mechanisms.</p>
+<p>If a customer has a specific regional deployment or data residency commitment, that commitment must be stated in the applicable agreement or order form.</p>
+<hr />
+<h2>11. Your Privacy Rights</h2>
+<p>Depending on your location and applicable law, you may have rights to:</p>
+<ul>
+<li>access personal information;</li>
+<li>correct inaccurate information;</li>
+<li>delete information;</li>
+<li>object to or restrict certain processing;</li>
+<li>receive a copy of information in a portable format;</li>
+<li>withdraw consent where processing is based on consent;</li>
+<li>opt out of certain disclosures, sales, targeted advertising, or profiling where applicable;</li>
+<li>appeal a denied privacy request where applicable.</li>
+</ul>
+<p>To exercise rights, contact <strong><a href="mailto:privacy@ravan.ai">privacy@ravan.ai</a></strong>.</p>
+<p>If your information is processed by Agni on behalf of a business customer, we may direct your request to that customer or ask you to contact that customer directly. We will support customers in responding to valid requests as required by applicable law and agreements.</p>
+<p>We may need to verify your identity before fulfilling a request.</p>
+<hr />
+<h2>12. Communications Preferences</h2>
+<p>You may unsubscribe from marketing emails by using the unsubscribe link in the email or contacting us. We may still send non-marketing messages related to your account, security, billing, legal matters, or service operation.</p>
+<hr />
+<h2>13. Children</h2>
+<p>Agni is not intended for use by children under 13, and we do not knowingly collect personal information from children under 13. Business customers must not use Agni to collect information from children unless they have all required legal authority and safeguards.</p>
+<hr />
+<h2>14. Customer Responsibilities for Calling and Recording</h2>
+<p>Customers are responsible for:</p>
+<ul>
+<li>ensuring contact lists are lawful and up to date;</li>
+<li>obtaining required consent for calls, messages, recordings, transcripts, AI processing, and follow-up communications;</li>
+<li>honoring opt-outs, do-not-call rules, and communication preferences;</li>
+<li>providing required notices to call participants;</li>
+<li>configuring agents, scripts, campaigns, integrations, and tools lawfully;</li>
+<li>avoiding prohibited, deceptive, abusive, or unlawful use.</li>
+</ul>
+<hr />
+<h2>15. Changes to this Policy</h2>
+<p>We may update this Privacy Policy from time to time. The updated version will be posted on this page with a revised "Last updated" date. Material changes may be communicated through the service, by email, or by other reasonable means.</p>
+<hr />
+<h2>16. Contact Us</h2>
+<p>For privacy questions, requests, or concerns:</p>
+<p><strong>Ravan AI LLC</strong><br />
+8 The Green, Ste R<br />
+Dover, DE 19901<br />
+United States</p>
+<p>Email: <strong><a href="mailto:privacy@ravan.ai">privacy@ravan.ai</a></strong></p>
+        </article>
+      </div>
+    </section>
+  </main>
+  <footer class="page-footer">
+    <div class="footer-inner">
+      <div>&copy; Ravan AI LLC</div>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="/support">Support</a>
+        <a href="/docs/zoom">Zoom Docs</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>
